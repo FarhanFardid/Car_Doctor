@@ -1,11 +1,73 @@
-
+import { Link } from 'react-router-dom';
+import logo from '../../assets/icons/logo.svg'
 
 const Navigataion = () => {
-    return (
-        <div>
-            <h5>navigation</h5>
+  return (
+    <div className="navbar bg-slate-300">
+      <div className="navbar-start">
+   
+        <div className="dropdown navbar-center">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 font-bold"
+          >
+            <li>
+             <Link to="/"> <a>Home</a></Link>
+            </li>
+           
+            <li>
+            <Link> <a>Services</a></Link>
+             
+            </li>
+            <li>
+            <Link to="/login"><a>Login</a></Link>
+              
+            </li>
+         
+          </ul>
         </div>
-    );
+        <a className=" normal-case text-xl p-1 ml-4"> <img src={logo} alt="logo" className='w-20 h-24 md:pl-4 pl-5' /> </a>
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 font-bold">
+          <li>
+          <Link to="/"><a>Home</a></Link>
+           
+          </li>
+         
+          <li>
+          <Link><a>Services</a></Link>
+            
+          </li>
+
+          <li>
+          <Link to="/login"><a>Login</a></Link>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div className="navbar-end">
+       <Link to="/serviceBooking"><a className="btn">Appointment</a></Link> 
+      </div>
+    </div>
+  );
 };
 
 export default Navigataion;
