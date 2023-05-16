@@ -12,8 +12,8 @@ const Banner = () => {
             <div className='text-white space-y-7 pl-12 w-2/3 h-full pt-20  '>
                 <h2 className='text-5xl text-white p-2 font-bold'>Affordable Price For Car Servicing</h2>
                 <p className='p-2'>Take care of your car in the garage, and the car will take care of you on the road</p>
-                <div>   <button className="btn bg-red-700 mx-3">Discover More</button>
-                <button className="btn btn-outline text-white border border-4 border-white">Latest Projects</button></div>
+                <div>   <button className="btn bg-orange-600 mx-3">Discover More</button>
+                <button className="btn btn-outline text-white border-4 border-white">Latest Projects</button></div>
              
             </div>
             </div>
@@ -28,8 +28,8 @@ const Banner = () => {
             <div className='text-white space-y-7 pl-12 w-2/3 h-full pt-20  '>
                 <h2 className='text-5xl text-white p-2 font-bold'>Affordable Price For Car Servicing</h2>
                 <p className='p-2'>Take care of your car in the garage, and the car will take care of you on the road</p>
-                <div>   <button className="btn bg-red-700 mx-3">Discover More</button>
-                <button className="btn btn-outline text-white border border-4 border-white">Latest Projects</button></div>
+                <div>   <button className="btn bg-orange-600 mx-3">Discover More</button>
+                <button className="btn btn-outline text-white  border-4 border-white">Latest Projects</button></div>
              
             </div>
             </div>
@@ -44,8 +44,8 @@ const Banner = () => {
             <div className='text-white space-y-7 pl-12 w-2/3 h-full pt-20  '>
                 <h2 className='text-5xl text-white p-2 font-bold'>Affordable Price For Car Servicing</h2>
                 <p className='p-2'>Take care of your car in the garage, and the car will take care of you on the road</p>
-                <div>   <button className="btn bg-red-700 mx-3">Discover More</button>
-                <button className="btn btn-outline text-white border border-4 border-white">Latest Projects</button></div>
+                <div>   <button className="btn bg-orange-600 mx-3">Discover More</button>
+                <button className="btn btn-outline text-white  border-4 border-white">Latest Projects</button></div>
              
             </div>
             </div>
@@ -60,8 +60,8 @@ const Banner = () => {
             <div className='text-white space-y-7 pl-12 w-2/3 h-full pt-20  '>
                 <h2 className='text-5xl text-white p-2 font-bold'>Affordable Price For Car Servicing</h2>
                 <p className='p-2'>Take care of your car in the garage, and the car will take care of you on the road</p>
-                <div>   <button className="btn bg-red-700 mx-3">Discover More</button>
-                <button className="btn btn-outline text-white border border-4 border-white">Latest Projects</button></div>
+                <div>   <button className="btn bg-orange-600 mx-3">Discover More</button>
+                <button className="btn btn-outline text-white  border-4 border-white">Latest Projects</button></div>
              
             </div>
             </div>
