@@ -8,7 +8,7 @@ const Products = () => {
         <div className="text-center p-5 space-y-3 bg-slate-300">
         <h3 className="text-4xl text-orange-600 font-bold ">Popular Products</h3>
         <h5 className="text-3xl text-slate-800 font-medium">Browse Our Products</h5>
-        <p className="px-20 pb-4">we not only provide top-notch car maintenance and repair services but also offer a selection of high-quality products to enhance your driving experience and keep your vehicle in optimal condition.</p>
+        <p className="px-20 pb-4">We not only provide top-notch car maintenance and repair services but also offer a selection of high-quality products to enhance your driving experience and keep your vehicle in optimal condition.</p>
 
 
         <div className="grid md:grid-cols-4 grid-cols-1 pb-4 gap-2">
@@ -29,7 +29,8 @@ const Products = () => {
     <button className="btn w-28 mx-auto bg-orange-500">Buy Now</button>
     
   </div>
-</div>   <div className="card card-compact  bg-gray-400 shadow-xl p-3  ">
+</div> 
+  <div className="card card-compact  bg-gray-400 shadow-xl p-3  ">
   <figure className='mx-auto'><img src={prod3} alt="p3" className="w-60 h-44  rounded-md  " /></figure>
   <div className="card-body mx-auto text-center">
     <h2 className="card-title text-2xl font-medium ">Air Filter</h2>
