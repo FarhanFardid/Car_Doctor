@@ -32,7 +32,7 @@ const Navigataion = () => {
             </li>
            
             <li>
-            <Link> <a>Services</a></Link>
+            <Link to="/serviceAdd"> <a>Add Service</a></Link>
              
             </li>
             <li>
@@ -52,7 +52,7 @@ const Navigataion = () => {
           </li>
          
           <li>
-          <Link><a>Services</a></Link>
+          <Link to="/serviceAdd"> <a>Add Service</a></Link>
             
           </li>
 

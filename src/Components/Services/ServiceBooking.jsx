@@ -11,7 +11,7 @@ const ServiceBooking = () => {
             <p className="mb-5 text-white">Streamline your car maintenance with hassle-free service bookings at our trusted car garage.<br></br>
 Experience convenient and reliable service bookings for your vehicle at our renowned car garage.
 </p>
-            <button className="btn bg-slate-500"> Ready to Service </button>
+            <button className="btn bg-slate-500"> Ready to Serve </button>
           </div>
         </div>
       </div>
