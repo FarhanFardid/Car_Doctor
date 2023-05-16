@@ -12,6 +12,7 @@ import AddServices from './Components/Services/AddServices.jsx'
 import UpdateServices from './Components/Services/UpdateServices.jsx'
 import ServiceBooking from './Components/Services/ServiceBooking.jsx'
 import ServiceCart from './Components/Services/ServiceCart.jsx'
+import Error from './Components/Pages/Error'
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,9 @@ const router = createBrowserRouter([
       {
         path:'serviceCart',
         element:<ServiceCart></ServiceCart>
+      },{
+        path:'*',
+        element:<Error></Error>
       }
     ]
   }
