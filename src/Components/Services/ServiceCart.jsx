@@ -1,7 +1,38 @@
+
 import service from '../../assets/images/services/2.jpg'
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
+import BookingRow from './BookingRow';
 
 const ServiceCart = () => {
+  const {user} = useContext(AuthContext);
+
+  const  [cart,setCart] = useState([]);
+  useEffect(()=>{
+    fetch(`http://localhost:5000/bookings?${user?.email}`)
+    .then (res=> res.json())
+    .then (data => setCart(data))
+  },[])
+  
+  const handleDelete = id =>{
+    const proceed = confirm("Are you sure, you want to delete the booked service?")
+    if(proceed){
+        fetch(`http://localhost:5000/bookings/${id}`,{
+          method: 'DELETE',
+        })
+        .then (res => res.json())
+        .then (data => {
+          if(data.deletedCount > 0){
+            alert("Deleted successfully");
+            const remaining = cart.filter(booking =>booking._id !== id)
+            setCart(remaining);
+          }
+        })
+
+    }
+}
     return (
+      <>
         <div className="hero h-[450px]" style={{ backgroundImage: `url(${service})` }}>
         <div className="hero-overlay bg-opacity-20"></div>
         <div className="text-neutral-content">
@@ -13,6 +44,36 @@ const ServiceCart = () => {
           </div>
         </div>
       </div>
+      {/* table format */}
+      <div className="overflow-x-auto w-full">
+  <table className="table w-full">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>
+         
+        </th>
+        <th className='ps-12'>Service Details </th>
+        <th className='ps-12'>Name</th>
+        <th className='ps-8'>Date</th>
+        <th> Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        cart.map(booking => <BookingRow key={booking._id} booking={booking} handleDelete={handleDelete}> </BookingRow>)
+      }
+    
+     
+    
+   
+    </tbody>
+   
+
+    
+  </table>
+</div>
+      </>
     );
 };
 

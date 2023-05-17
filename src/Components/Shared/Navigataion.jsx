@@ -77,7 +77,7 @@ const Navigataion = () => {
 
           {
               user ?  <><li>
-              <Link to="/serviceCart"><button>Service Cart</button></Link>
+              <Link to="/serviceCart"><button>My Bookings</button></Link>
                 
               </li> <li>
               <Link ><button onClick={handleLogout}>Logout</button></Link>
