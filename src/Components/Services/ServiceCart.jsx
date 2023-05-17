@@ -8,12 +8,12 @@ const ServiceCart = () => {
   const {user} = useContext(AuthContext);
 
   const  [cart,setCart] = useState([]);
-  
+  const uri = `http://localhost:5000/bookings?email=${user?.email}`
   useEffect(()=>{
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(uri)
     .then (res=> res.json())
     .then (data => setCart(data))
-  },[])
+  },[uri])
   
   const handleDelete = id =>{
     const proceed = confirm("Are you sure, you want to delete the booked service?")
