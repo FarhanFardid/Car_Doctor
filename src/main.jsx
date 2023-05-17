@@ -13,6 +13,7 @@ import UpdateServices from './Components/Services/UpdateServices.jsx'
 import ServiceBooking from './Components/Services/ServiceBooking.jsx'
 import ServiceCart from './Components/Services/ServiceCart.jsx'
 import Error from './Components/Pages/Error'
+import AuthProvider from './Components/Providers/AuthProvider'
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,6 @@ const router = createBrowserRouter([
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router}></RouterProvider>
+   <AuthProvider><RouterProvider router={router}></RouterProvider></AuthProvider>
   </React.StrictMode>,
 )
