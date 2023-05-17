@@ -8,13 +8,12 @@ import Home from './Components/Home/Home.jsx'
 import Login from './Components/Pages/Login.jsx'
 import SignUp from './Components/Pages/SignUp.jsx'
 import ServiceDetails from './Components/Services/ServiceDetails.jsx'
-import AddServices from './Components/Services/AddServices.jsx'
-import UpdateServices from './Components/Services/UpdateServices.jsx'
 import ServiceBooking from './Components/Services/ServiceBooking.jsx'
 import ServiceCart from './Components/Services/ServiceCart.jsx'
 import Error from './Components/Pages/Error'
 import AuthProvider from './Components/Providers/AuthProvider'
 import PrivateRoute from './Components/Providers/PrivateRoute'
+import Services from './Components/Services/Services.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,13 +39,10 @@ const router = createBrowserRouter([
       loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
       },
       {
-        path:'serviceAdd',
-        element:<PrivateRoute><AddServices></AddServices></PrivateRoute>,
+        path:'services',
+        element:<PrivateRoute><Services></Services></PrivateRoute>,
       },
-      {
-        path:'serviceUpdate',
-        element:<UpdateServices></UpdateServices>
-      },
+     
       {
         path:'serviceBooking/:id',
         element:<PrivateRoute><ServiceBooking></ServiceBooking></PrivateRoute>,
@@ -54,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path:'serviceCart',
-        element:<ServiceCart></ServiceCart>
+        element:<PrivateRoute><ServiceCart></ServiceCart></PrivateRoute>
      
       },{
         path:'*',

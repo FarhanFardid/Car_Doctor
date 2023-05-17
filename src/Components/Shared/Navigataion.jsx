@@ -41,21 +41,14 @@ const Navigataion = () => {
             </li>
            
             <li>
-            <Link to="/serviceAdd"> <a>Add Service</a></Link>
+            <Link to='/services'> <a > Services</a></Link>
              
             </li>
 
             {
-              user ?  <><li>
-              <Link to="/serviceCart"><button>Service Cart</button></Link>
-                
-              </li> <li>
-              <Link ><button onClick={handleLogout}>Logout</button></Link>
-                
-              </li></>  : <li>
-              <Link to="/login"><button>Login</button></Link>
-                
-              </li>
+              user ?  <li>
+              <Link to="/serviceCart"><button>My Bookings</button></Link></li> : <li></li>
+              
             }
           
          
@@ -71,27 +64,24 @@ const Navigataion = () => {
           </li>
          
           <li>
-          <Link to="/serviceAdd"> <a>Add Service</a></Link>
+          <Link to='/services'> <a > Services</a></Link>
             
           </li>
 
           {
-              user ?  <><li>
-              <Link to="/serviceCart"><button>My Bookings</button></Link>
-                
-              </li> <li>
-              <Link ><button onClick={handleLogout}>Logout</button></Link>
-                
-              </li></>  : <li>
-              <Link to="/login"><button >Login</button></Link>
-                
-              </li>
+              user ?  <li>
+              <Link to="/serviceCart"><button>My Bookings</button></Link></li> : <li></li>
+              
             }
         
         </ul>
       </div>
       <div className="navbar-end">
-       <Link to="/serviceCart"><a className="btn">Appointment</a></Link> 
+       {/* <Link to="/serviceCart"><a className="btn">Appointment</a></Link>  */}{
+        user? <Link ><button className="btn" onClick={handleLogout}>Logout</button></Link> :
+        <Link to="/login"><button className="btn" >Login</button></Link>
+       }
+      
       </div>
     </div>
   );

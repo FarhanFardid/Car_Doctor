@@ -8,8 +8,9 @@ const ServiceCart = () => {
   const {user} = useContext(AuthContext);
 
   const  [cart,setCart] = useState([]);
+  
   useEffect(()=>{
-    fetch(`http://localhost:5000/bookings?${user?.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
     .then (res=> res.json())
     .then (data => setCart(data))
   },[])
@@ -30,6 +31,26 @@ const ServiceCart = () => {
         })
 
     }
+}
+
+const handleConfirm = id =>{
+  fetch(`http://localhost:5000/bookings/${id}`,{
+    method: 'PATCH',
+    headers :{
+      'content-type' : "application/json"
+    },
+    body: JSON.stringify({status:'confirm'})
+  })
+  .then(res=>res.json())
+  .then (data=> {
+    if(data.modifiedCount > 0){
+      const remaining = cart.filter(booking=> booking._id !== id)
+      const updated = cart.find(booking=> booking._id === id)
+      updated.status='confirm'
+      const newCart = [updated, ...remaining]
+      setCart(newCart);
+    }
+  })
 }
     return (
       <>
@@ -61,7 +82,11 @@ const ServiceCart = () => {
     </thead>
     <tbody>
       {
-        cart.map(booking => <BookingRow key={booking._id} booking={booking} handleDelete={handleDelete}> </BookingRow>)
+        cart.map(booking => <BookingRow 
+          key={booking._id}
+           booking={booking} 
+           handleDelete={handleDelete}
+           handleConfirm={handleConfirm}> </BookingRow>)
       }
     
      
