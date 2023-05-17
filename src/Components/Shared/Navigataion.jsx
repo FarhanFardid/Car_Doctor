@@ -78,8 +78,8 @@ const Navigataion = () => {
       </div>
       <div className="navbar-end">
        {/* <Link to="/serviceCart"><a className="btn">Appointment</a></Link>  */}{
-        user? <Link ><button className="btn" onClick={handleLogout}>Logout</button></Link> :
-        <Link to="/login"><button className="btn" >Login</button></Link>
+        user? <Link ><button className="btn bg-red-600" onClick={handleLogout}>Logout</button></Link> :
+        <Link to="/login"><button className="btn bg-orange-600" >Login</button></Link>
        }
       
       </div>
