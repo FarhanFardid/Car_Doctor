@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/icons/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const Navigataion = () => {
+  const {user,logout} = useContext(AuthContext);
+
+  const handleLogout =() =>{
+    logout()
+    .then(()=>{})
+    .catch(error=>console.log(error))
+  }
   return (
     <div className="navbar bg-slate-300">
       <div className="navbar-start">
@@ -35,10 +44,20 @@ const Navigataion = () => {
             <Link to="/serviceAdd"> <a>Add Service</a></Link>
              
             </li>
-            <li>
-            <Link to="/login"><a>Login</a></Link>
-              
-            </li>
+
+            {
+              user ?  <><li>
+              <Link to="/serviceCart"><button>Service Cart</button></Link>
+                
+              </li> <li>
+              <Link ><button onClick={handleLogout}>Logout</button></Link>
+                
+              </li></>  : <li>
+              <Link to="/login"><button>Login</button></Link>
+                
+              </li>
+            }
+          
          
           </ul>
         </div>
@@ -56,10 +75,18 @@ const Navigataion = () => {
             
           </li>
 
-          <li>
-          <Link to="/login"><a>Login</a></Link>
-            
-          </li>
+          {
+              user ?  <><li>
+              <Link to="/serviceCart"><button>Service Cart</button></Link>
+                
+              </li> <li>
+              <Link ><button onClick={handleLogout}>Logout</button></Link>
+                
+              </li></>  : <li>
+              <Link to="/login"><button >Login</button></Link>
+                
+              </li>
+            }
         
         </ul>
       </div>

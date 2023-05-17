@@ -1,8 +1,44 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/images/login/login.svg'
 import google from '../../assets/images/team/google Icon.png'
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
 const Login = () => {
+  const {loginUser,googleUser} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/'
+  const loginHandle = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email= form.email.value;
+    const password = form.password.value;
+    console.log(email,password);
+    loginUser(email,password)
+    .then(res=>{
+      const loggedUser = res.user;
+      console.log(loggedUser);
+      form.reset();
+      navigate(from, {replace:true})
+
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+
+  }
+  
+  const googleHandle=()=>{
+    googleUser()
+    .then(res=>{
+      const loggedUser = res.user;
+      console.log(loggedUser);
+    })
+    .catch(error=>{console.log(error)})
+  }
+   
+
     return (
         <div>
            <div className="hero min-h-screen bg-base-200">
@@ -12,19 +48,19 @@ const Login = () => {
  
     </div>
     <div className="card  w-full max-w-sm shadow-2xl bg-base-100 mx-auto  ml-10 ">
-      <form className="card-body ">
+      <form onSubmit={loginHandle} className="card-body ">
         <h3 className='text-2xl font-bold text-center p-3'>Sign In Please</h3>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text" placeholder="your email" name="email" className="input input-bordered" />
+          <input type="text" placeholder="your email" name="email" className="input input-bordered" required/>
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="text" placeholder="your password" name="password" className="input input-bordered" />
+          <input type="password" placeholder="your password" name="password" className="input input-bordered" required />
          
         </div>
         <div className="form-control mt-6">
@@ -34,7 +70,7 @@ const Login = () => {
       </form>
       <div className='text-center '>
       <p className='text-center pb-1'>or Sign In with</p>
-      <button className="btn btn-circle btn-outline h-5 w-15">
+      <button onClick={googleHandle} className="btn btn-circle btn-outline h-5 w-15">
  <img src={google} alt="" />
 </button>
 

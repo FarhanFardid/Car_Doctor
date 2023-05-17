@@ -14,6 +14,7 @@ import ServiceBooking from './Components/Services/ServiceBooking.jsx'
 import ServiceCart from './Components/Services/ServiceCart.jsx'
 import Error from './Components/Pages/Error'
 import AuthProvider from './Components/Providers/AuthProvider'
+import PrivateRoute from './Components/Providers/PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path:'serviceAdd',
-        element:<AddServices></AddServices>,
+        element:<PrivateRoute><AddServices></AddServices></PrivateRoute>,
       },
       {
         path:'serviceUpdate',
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path:'serviceBooking',
-        element:<ServiceBooking></ServiceBooking>
+        element:<PrivateRoute><ServiceBooking></ServiceBooking></PrivateRoute>
       },
       {
         path:'serviceCart',
