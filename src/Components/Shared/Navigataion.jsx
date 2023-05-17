@@ -91,7 +91,7 @@ const Navigataion = () => {
         </ul>
       </div>
       <div className="navbar-end">
-       <Link to="/serviceBooking"><a className="btn">Appointment</a></Link> 
+       <Link to="/serviceCart"><a className="btn">Appointment</a></Link> 
       </div>
     </div>
   );

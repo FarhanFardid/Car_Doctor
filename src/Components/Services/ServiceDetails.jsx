@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const ServiceDetails = () => {
@@ -19,10 +19,11 @@ const ServiceDetails = () => {
 <div>
     <h5 className="text-2xl font-bold text-orange-700 p-2">Facilities We Provide: </h5>
     {
-        facility.map(fcs => <li className="p-1">  {fcs.name}  </li> )
+        facility.map(fcs => <li className="p-1" key={fcs._id}>{fcs.name}</li> )
     }
 </div>
-            <button className="btn bg-orange-600 mt-5 hover:bg-red-700"> ${price}  </button>
+            <button className="btn bg-orange-600 mt-5 hover:bg-orange-800"> ${price}  </button>
+           <Link to={`/serviceBooking/${_id}`}> <button className="btn bg-red-700 mt-5 hover:bg-red-900"> Book Now </button></Link>
           </div>
         </div>
       </div>
