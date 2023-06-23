@@ -22,7 +22,7 @@ const ServiceBooking = () => {
     img,
     service_id: _id}
 
-    fetch('http://localhost:5000/bookings',{
+    fetch('https://car-server-alpha-one.vercel.app/bookings',{
       method: 'POST',
       headers:{
         'content-type': "application/json"

@@ -10,7 +10,7 @@ const ServiceCart = () => {
   const navigate = useNavigate();
 
   const  [cart,setCart] = useState([]);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`
+  const url = `https://car-server-alpha-one.vercel.app/bookings?email=${user?.email}`
   useEffect(()=>{
     fetch(url,{
       method: "GET",
@@ -30,7 +30,7 @@ navigate('/')
   const handleDelete = id =>{
     const proceed = confirm("Are you sure, you want to delete the booked service?")
     if(proceed){
-        fetch(`http://localhost:5000/bookings/${id}`,{
+        fetch(`https://car-server-alpha-one.vercel.app/bookings/${id}`,{
           method: 'DELETE',
         })
         .then (res => res.json())
@@ -46,7 +46,7 @@ navigate('/')
 }
 
 const handleConfirm = id =>{
-  fetch(`http://localhost:5000/bookings/${id}`,{
+  fetch(`https://car-server-alpha-one.vercel.app/bookings/${id}`,{
     method: 'PATCH',
     headers :{
       'content-type' : "application/json"

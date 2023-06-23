@@ -3,7 +3,7 @@ import logo from '../../assets/icons/logo.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 
-const Navigataion = () => {
+const Navigation = () => {
   const {user,logout} = useContext(AuthContext);
 
   const handleLogout =() =>{
@@ -89,4 +89,4 @@ const Navigataion = () => {
   );
 };
 
-export default Navigataion;
+export default Navigation;

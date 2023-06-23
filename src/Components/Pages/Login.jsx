@@ -22,7 +22,7 @@ const Login = () => {
         }
         console.log(loggedUser);
         // jwt post
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://car-server-alpha-one.vercel.app/jwt',{
           method: 'POST',
           headers:{
             'content-type': 'application/json'
@@ -52,7 +52,7 @@ const Login = () => {
         }
         console.log(loggedUser);
         // jwt post
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://car-server-alpha-one.vercel.app/jwt',{
           method: 'POST',
           headers:{
             'content-type': 'application/json'

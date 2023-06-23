@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Navigataion from "../Shared/Navigataion";
+
 import Footer from "../Shared/Footer";
+import Navigation from "../Shared/Navigation";
 
 
 const PageLayout = () => {
     return (
         <div>
-            <Navigataion></Navigataion>
+            <Navigation></Navigation>
             <Outlet></Outlet>
       <Footer></Footer>
         </div>
