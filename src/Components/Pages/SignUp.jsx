@@ -6,7 +6,7 @@ import { AuthContext } from '../Providers/AuthProvider';
 
 const SignUp = () => {
 const navigate = useNavigate();
-  const {createUser,userUpdate,googleUser} = useContext(AuthContext);
+  const {createUser,userUpdate,googleUser,logout} = useContext(AuthContext);
    const signUpHandle = event =>{
     event.preventDefault();
     const form = event.target;
@@ -21,6 +21,7 @@ const navigate = useNavigate();
       userUpdate(signedUser,name)
       console.log(signedUser);
       form.reset()
+      logout();
       navigate('/login')
   })
   .catch(error=>console.log(error))
@@ -30,7 +31,25 @@ const googleHandle=()=>{
   .then(res=>{
     const signedUser = res.user;
     console.log(signedUser);
+ 
+    const user = {
+      email: signedUser.email
+    }
+    // console.log(user);
+    // jwt post
+    fetch('http://localhost:5000/jwt',{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then (res => res.json())
+    .then(data => {
+      console.log('jwt token ', data)
+    localStorage.setItem('car-access-token', data.token)
     navigate('/')
+    })
   })
 }
 

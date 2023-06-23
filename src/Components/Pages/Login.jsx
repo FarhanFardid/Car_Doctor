@@ -47,7 +47,24 @@ const Login = () => {
     googleUser()
       .then((res) => {
         const loggedUser = res.user;
+        const user = {
+          email: loggedUser.email
+        }
         console.log(loggedUser);
+        // jwt post
+        fetch('http://localhost:5000/jwt',{
+          method: 'POST',
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then (res => res.json())
+        .then(data => {
+          console.log('jwt token ', data)
+        localStorage.setItem('car-access-token', data.token)
+        navigate(from, { replace: true });
+        })
       })
       .catch((error) => {
         console.log(error);

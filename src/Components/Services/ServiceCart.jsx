@@ -3,17 +3,29 @@ import service from '../../assets/images/services/2.jpg'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 import BookingRow from './BookingRow';
+import { useNavigate } from 'react-router-dom';
 
 const ServiceCart = () => {
   const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const  [cart,setCart] = useState([]);
-  const uri = `http://localhost:5000/bookings?email=${user?.email}`
+  const url = `http://localhost:5000/bookings?email=${user?.email}`
   useEffect(()=>{
-    fetch(uri)
+    fetch(url,{
+      method: "GET",
+      headers:{authorization: `Bearer ${localStorage.getItem('car-access-token')}` 
+
+      }
+    })
     .then (res=> res.json())
-    .then (data => setCart(data))
-  },[uri])
+    .then (data =>{ 
+      if(!data.error){setCart(data)}
+      else {
+navigate('/')
+      }
+      })
+  },[url])
   
   const handleDelete = id =>{
     const proceed = confirm("Are you sure, you want to delete the booked service?")
