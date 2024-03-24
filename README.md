@@ -1,10 +1,9 @@
 
 # Car Doctor
 
-Welcome to Car Doctor, a Full Stack car servicing center management system where users can book services, view booked services, and manage their bookings seamlessly. 
-This project is built with Firebase authentication for user management and offers full CRUD (Create, Read, Update, Delete) functionality for service bookings.
+## Welcome to Car Doctor, a Full Stack car servicing center management system where users can book services, view booked services, and manage their bookings seamlessly. This project is built with Firebase authentication for user management and offers full CRUD (Create, Read, Update, Delete) functionality for service bookings.
 
-Features:
+### Features:
 
 i. User Authentication: Utilizes Firebase authentication for secure user login and signup functionality.
 
@@ -16,7 +15,7 @@ iv. Manage Bookings: Users can manage their bookings by confirming or deleting t
 
 v. Responsive Design: The interface is designed to be responsive and accessible across various devices.
 
-Technologies Used:
+### Technologies Used:
 
 1. Firebase: For user authentication and real-time database management.
    
